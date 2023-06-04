@@ -27,3 +27,7 @@ git pull is used to pull the code from github
 git fetch is just used to update the status between local and remote
 use git status after git fetch to know the status
 ```
+```
+.gitignore is used to ignore the code files / folders which we don't require on repo
+for example db file , env folder
+```

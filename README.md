@@ -41,6 +41,12 @@ sql queries <=> Django ORM
 ```
 command to create app
 python3 manage.py startapp <your_app_name>
+1 django-project can have N number of apps
 ```
 
+```
+python manage.py makemigrations <your_app_name>
+python manage.py migrate <your_app_name>
+python manage.py showmigrations <your_app_name>
+```
 

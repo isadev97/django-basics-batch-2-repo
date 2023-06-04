@@ -31,3 +31,11 @@ use git status after git fetch to know the status
 .gitignore is used to ignore the code files / folders which we don't require on repo
 for example db file , env folder
 ```
+
+```
+Concept of django table and models
+DB table (sql) <=> Django Models (python)
+sql queries <=> Django ORM
+```
+
+

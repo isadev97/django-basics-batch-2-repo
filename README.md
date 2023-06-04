@@ -38,4 +38,9 @@ DB table (sql) <=> Django Models (python)
 sql queries <=> Django ORM
 ```
 
+```
+command to create app
+python3 manage.py startapp <your_app_name>
+```
+
 

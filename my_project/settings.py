@@ -10,23 +10,25 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
+import environ
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
+ENV_FILE_PATH = os.path.join(BASE_DIR, '.env')
+# Take environment variables from .env file
+environ.Env.read_env(ENV_FILE_PATH)
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-dwh41uxb!*c2wi*ei7xc^2zr3p=eppu@dok5wtn6onyy-pw@lv'
-
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.environ.get('DEBUG') == 'on' 
 
 ALLOWED_HOSTS = []
-
 
 # Application definition
 

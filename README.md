@@ -59,3 +59,8 @@ open a file
 read a file 
 execute a file
 ```
+
+```
+python3 manage.py createsuperuser
+to create a superuser
+```

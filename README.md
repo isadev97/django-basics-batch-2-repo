@@ -50,3 +50,12 @@ python manage.py migrate <your_app_name>
 python manage.py showmigrations <your_app_name>
 ```
 
+```
+python manage.py shell
+execute the below command inside the shell
+exec(open('./my_app2/dbscripts/populate_persons.py').read())
+
+open a file 
+read a file 
+execute a file
+```

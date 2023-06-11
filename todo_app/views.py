@@ -4,6 +4,9 @@ from django.shortcuts import render
 def list_view(request):
     pass 
 
+def create_view(request):
+    pass
+
 def update_view(request, todo_id):
     pass 
 

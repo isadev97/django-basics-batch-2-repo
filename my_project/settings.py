@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'persons_app',
-    'index_page_app'
+    'index_page_app',
+    'todo_app'
 ]
 
 MIDDLEWARE = [

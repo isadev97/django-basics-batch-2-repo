@@ -8,6 +8,10 @@
   </head>
   <body>
     <h1>Hello, world! to the django todo app</h1>
+    <form method="GET" action="{% url 'todo_list_view' %}" >
+        <input type="text" class="form-control" id="search" placeholder="Search your todos here" name="search" />
+        <button type="submit" class="btn btn-secondary">Search</button>
+      </form>
     <form method="POST" action="{% url 'todo_create_view' %}">
       {% csrf_token %}
       <div class="mb-3">

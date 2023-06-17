@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from django.http import HttpResponse
 from todo_app.models import Todo
 
 # Create your views here.
@@ -24,7 +25,18 @@ def create_view(request):
     return redirect("todo_list_view")
 
 def update_view(request, todo_id):
-    pass 
+    if request.method != "POST":
+        return HttpResponse("Error method not allowed")
+    else:
+        todo = Todo.objects.get(id=todo_id)
+        todo.completed = True
+        todo.save()
+        return redirect("todo_list_view")
 
 def delete_view(request, todo_id):
-    pass
+    if request.method != "POST":
+        return HttpResponse("Error method not allowed")
+    else:
+        todo = Todo.objects.get(id=todo_id)
+        todo.delete()
+        return redirect("todo_list_view")

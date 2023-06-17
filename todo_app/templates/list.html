@@ -15,6 +15,8 @@
     <h2>Filter todos</h2>
     <a class="btn btn-danger" href="/todos/list?status=incomplete">Show Incompleted todos</a>
     <a class="btn btn-success" href="/todos/list?status=complete">Show completed todos</a>
+    <a class="btn btn-secondary" href="/todos/list?order_by_oldest=true">Order by oldest</a>
+    <a class="btn btn-secondary" href="/todos/list?order_by_latest=true">Order by latest</a>
     <form method="POST" action="{% url 'todo_create_view' %}">
       {% csrf_token %}
       <div class="mb-3">

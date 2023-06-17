@@ -4,11 +4,18 @@ from todo_app.models import Todo
 
 # Create your views here.
 def list_view(request):
-    print(request.method)
     search_string = request.GET.get('search', "")
+    status_mapping = {
+        'incomplete' : False,
+        'complete' : True
+    }
+    status = request.GET.get('status', "")
     todo_list = Todo.objects.all().order_by("-created_at")
     if search_string != "":
         todo_list = todo_list.filter(title__istartswith=search_string)
+    if status != "":
+        status_in_boolean = status_mapping[status]
+        todo_list = todo_list.filter(completed=status_in_boolean)
     data = {
         "todo_list" : todo_list
     }

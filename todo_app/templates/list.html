@@ -11,7 +11,10 @@
     <form method="GET" action="{% url 'todo_list_view' %}" >
         <input type="text" class="form-control" id="search" placeholder="Search your todos here" name="search" />
         <button type="submit" class="btn btn-secondary">Search</button>
-      </form>
+    </form>
+    <h2>Filter todos</h2>
+    <a class="btn btn-danger" href="/todos/list?status=incomplete">Show Incompleted todos</a>
+    <a class="btn btn-success" href="/todos/list?status=complete">Show completed todos</a>
     <form method="POST" action="{% url 'todo_create_view' %}">
       {% csrf_token %}
       <div class="mb-3">

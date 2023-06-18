@@ -1,6 +1,7 @@
 asgiref==3.7.2
 backports.zoneinfo==0.2.1
 Django==4.1.7
+django-cors-headers==4.1.0
 django-environ==0.10.0
 Faker==18.10.1
 numpy==1.24.3

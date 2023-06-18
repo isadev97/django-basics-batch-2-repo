@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 import environ
 import os
 from pathlib import Path
+import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -27,6 +28,10 @@ environ.Env.read_env(ENV_FILE_PATH)
 SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get('DEBUG') == 'on' 
+# MODE 
+DEV_ENV = os.environ.get('MODE') == 'development'
+# DB_CONNECTION
+DB_CONNECTION = os.environ.get('DB_CONNECTION', '')
 
 ALLOWED_HOSTS = ["*"]
 
@@ -81,11 +86,16 @@ WSGI_APPLICATION = 'my_project.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',        
+if DEV_ENV:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',        
+        }
     }
+else:
+    DATABASES = {
+    'default': dj_database_url.parse(DB_CONNECTION),
 }
 
 
